@@ -5,7 +5,7 @@ const {doErrorResponse} = require("../responseUtils");
 const {doSuccessResponse} = require("../responseUtils");
 
 router.get('/', (req, res) => {
-    db.query(`SELECT name, feedback, rate, serverDateTime FROM feedbacks ORDER BY serverDateTime DESC`,
+    db.query(`SELECT name, user, feedback, rate, serverDateTime FROM feedbacks ORDER BY serverDateTime DESC`,
         (err, rows) => {
             if (err) {
                 doErrorResponse(res, err);
