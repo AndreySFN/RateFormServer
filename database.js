@@ -1,14 +1,15 @@
 const mysql = require('mysql2')
+require('dotenv').config();
 
 const db = mysql.createConnection({
-    host: '188.65.208.74',
-    port: '3306',
-    user: '185354_root',
-    password: 'An25021999!'
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD
 });
 
 db.connect();
-db.query(`USE 185354_rateform`);
+db.query(`USE ${process.env.DB_NAME}`);
 db.query("SET NAMES utf8");
 db.query("SET CHARACTER SET utf8");
 db.query("SET character_set_client = utf8");
